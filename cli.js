@@ -18,7 +18,7 @@ cli
 
 if(cli.check) {
 	if(!testReminder.check(cli.t)) {
-		console.log(error(`Tests ran over ${cli.t} minutes ago!`)+"\nRemember to run \"test-reminder --record\" after a successfull test-suite run."+);
+		console.log(error(`Tests ran over ${cli.t} minutes ago!`)+"\nRemember to run \"test-reminder --record\" after a successfull test-suite run.");
 		process.exit(1);
 	} else {
 		process.exit(0);
