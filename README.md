@@ -30,14 +30,14 @@ $ test-reminder --help
     -c, --check        Check if last test-run is below threshold
                          Default: false
     -w, --warning      Treshold to show warning sign
-                         Default: 5m
+                         Default: 5 (in minutes)
     -e, --error        Treshold to show error message and fail
-                         Default: 10m
+                         Default: 10 (in minutes)
     -h, --help         print usage information
     -v, --version      show version info and exit
 
   Examples:
-    $ test-reminder -e 30m
+    $ test-reminder -e 30
     $ test-reminder -r
 ```
 
