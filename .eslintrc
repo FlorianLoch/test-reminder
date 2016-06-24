@@ -1,0 +1,22 @@
+{
+    "rules": {
+        "eqeqeq": "off",
+        "curly": "error",
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ]
+    },
+    "env": {
+        "es6": true,
+        "node": true
+    }
+}
