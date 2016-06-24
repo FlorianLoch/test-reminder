@@ -38,4 +38,4 @@ $ test-reminder --help
 
 ## License
 
-MIT © [Florian Loch](https://github.com/FlorianLoch) & [Christoph Häfner](https://christophhaefner.de)
+MIT © [Florian Loch](https://fdlo.ch/) & [Christoph Häfner](https://christophhaefner.de)
