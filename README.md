@@ -6,6 +6,10 @@ Whenever there is no CI which runs your test after every check-in or nightly, th
 This litte helper reminds you that your tests are overdue.
 A poor man's CI so to speak.
 
+If you can't run your tests locally, e.g. if tests are run in a docker container or vm, and still want to use your local git,
+this might be helpfull.
+Or if for any reason you don't want to run your testsuite in a precommit-hook, but tent to forget to run in at all ;)
+
 ## CLI
 
 ```sh
@@ -18,9 +22,13 @@ $ test-reminder --help
   reminds you to run your testsuite
 
   Usage:
-    test-reminder [options]
+    test-reminder [-r|-c] [options]
 
   Options:
+    -r, --record       Call if tests ran successfully
+                         Default: true
+    -c, --check        Check if last test-run is below threshold
+                         Default: false
     -w, --warning      Treshold to show warning sign
                          Default: 5m
     -e, --error        Treshold to show error message and fail
@@ -29,13 +37,37 @@ $ test-reminder --help
     -v, --version      show version info and exit
 
   Examples:
-    $ test-reminder
+    $ test-reminder -e 30m
+    $ test-reminder -r
 ```
 
 ## Deployment
- * After every testrun via npm run script "posttest"
- * Befor every commit via [pre-commit](https://www.npmjs.com/package/pre-commit)
+
+### Record
+```json
+{
+  "name": "yourPackage",
+  "scripts": {
+     "posttest": "test-reminder --record"
+  }
+}
+```
+
+### Remind
+```json
+{
+  "name": "yourPackage",
+  "scripts": {
+     "remind": "test-reminder --check --error 30m"
+  },
+  "pre-commit": {
+     "remind"
+  }
+}
+```
+For alternative pre-commit synatx, check [pre-commit](https://www.npmjs.com/package/pre-commit)
 
 ## License
 
 MIT © [Florian Loch](https://fdlo.ch/) & [Christoph Häfner](https://christophhaefner.de)
+
