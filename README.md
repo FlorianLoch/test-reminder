@@ -29,9 +29,7 @@ $ test-reminder --help
                          Default: true
     -c, --check        Check if last test-run is below threshold
                          Default: false
-    -w, --warning      Treshold to show warning sign
-                         Default: 5 (in minutes)
-    -e, --error        Treshold to show error message and fail
+    -t, --threshold    Threshold to show error message and fail
                          Default: 10 (in minutes)
     -h, --help         print usage information
     -v, --version      show version info and exit
@@ -58,7 +56,7 @@ $ test-reminder --help
 {
   "name": "yourPackage",
   "scripts": {
-     "remind": "test-reminder --check --error 30m"
+     "remind": "test-reminder --check --threshold 30"
   },
   "pre-commit": {
      "remind"
